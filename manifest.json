@@ -1,0 +1,29 @@
+
+{
+  "manifest_version": 3,
+  "name": "Benim Hocam Video Fix",
+  "version": "1.1.0",
+  "description": "Benim Hocam video kaynakları için CORS düzenlemesi",
+  "permissions": [
+    "declarativeNetRequestWithHostAccess",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://benimhocam.frns.in/*",
+    "https://cdn.fernus.net/*",
+    "https://vvplayer.fernus.net/*",
+    "https://benimhocamvideo.frns.in/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://benimhocamvideo.frns.in/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
